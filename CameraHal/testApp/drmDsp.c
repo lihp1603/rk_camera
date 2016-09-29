@@ -121,32 +121,22 @@ int drmDspFrame(int width,int height,int dmaFd,int fmt)
 	handles[1] = bo->handle;
 	pitches[1] = wAlign16;
 	offsets[1] = width*height;//wAlign16 * hAlign16;
-	//copy src data to bo
-
 
 #if 1
 	uint32_t handle = 0;
-	
-                ret = drmPrimeFDToHandle(bo->dev->fd,
-                       dmaFd , &handle);
-                if (ret < 0) {
-                    printk("Could not get handle");
-                }
-                handles[0] = handle;
-                handles[1] = handle;
-
-                ret = drmModeAddFB2(bo->dev->fd, bo->width, bo->height,
-                        bo->format, handles, pitches, offsets,
-                        &bo->fb_id, 0);
+	ret = drmPrimeFDToHandle(bo->dev->fd, dmaFd, &handle);
+	if (ret < 0) {
+		printf("Could not get handle\n");
+	}
+	handles[0] = handle;
+	handles[1] = handle;
 #else
-
-
+	//copy src data to bo
 	memcpy(bo->map_addr,(void*)dmaFd,wAlign16*hAlign16*3/2);
-
+#endif
 	ret = drmModeAddFB2(bo->dev->fd, bo->width, bo->height,
 			bo->format, handles, pitches, offsets,
 			&bo->fb_id, bo->flags);
-#endif
 
 	if (ret) {
 		printf("%s:failed to create fb ret=%d\n", __func__,ret);

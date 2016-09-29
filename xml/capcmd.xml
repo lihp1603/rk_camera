@@ -44,7 +44,7 @@
     <Avs mode="enable"></Avs> 
     <Af	mode="enable"></Af>      
 </Capture>
-<Capture  format="CamSys_Fmt_Yuv422_8b"  number="10"  enable="1">
+<Capture  format="CamSys_Fmt_Yuv422_8b"  number="5"  enable="1">
 		<Resolution width="3280" height="2464"></Resolution>
     <Exposure mode="auto"> </Exposure>	
     <WhiteBalance mode="auto"></WhiteBalance>

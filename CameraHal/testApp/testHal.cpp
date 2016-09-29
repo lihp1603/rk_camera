@@ -139,7 +139,8 @@ public:
 			#ifdef USE_DRM_DISPLAY	
 			drmDspFrame(spCamBuf->getWidth(),
                                     spCamBuf->getHeight(),
-                                    (short)(spCamBuf->getFd()),
+                                    //(int)(spCamBuf->getVirtAddr()),
+									(short)(spCamBuf->getFd()),
                                      DRM_FORMAT_NV12);
 			#endif
 			spCamBuf->decUsedCnt();
