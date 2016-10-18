@@ -1,11 +1,11 @@
 /*
 **************************************************************************
- * Rockchip driver for CIF ISP 1.0 
+ * Rockchip driver for CIF ISP 1.0
  * (Based on Intel driver for sofiaxxx)
  *
  * Copyright (C) 2015 Intel Mobile Communications GmbH
  * Copyright (C) 2016 Fuzhou Rockchip Electronics Co., Ltd.
- * 
+ *
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,9 +13,8 @@
  * (at your option) any later version.
 **************************************************************************
  */
-
-#ifndef _RK_ISP10_CONFIG_H
-#define _RK_ISP10_CONFIG_H
+#ifndef _RK_ISP11_CONFIG_H
+#define _RK_ISP11_CONFIG_H
 
 #include <media/v4l2-config_rockchip.h>
 
@@ -37,7 +36,6 @@
 #define CIFISP_MODULE_WDR			(1 << 15)
 #define CIFISP_MODULE_DPF				(1 << 16)
 #define CIFISP_MODULE_DPF_STRENGTH	(1 << 17)
-
 
 #define CIFISP_CTK_COEFF_MAX   0x100
 #define CIFISP_CTK_OFFSET_MAX 0x800
@@ -149,7 +147,7 @@ struct cifisp_awb_meas {
 };
 
 struct cifisp_awb_stat {
-	struct cifisp_awb_meas awb_mean[CIFISP_AWB_MAX_GRID];	
+	struct cifisp_awb_meas awb_mean[CIFISP_AWB_MAX_GRID];
 };
 
 struct cifisp_hist_stat {
@@ -224,24 +222,22 @@ struct cifisp_stat_buffer {
 	struct isp_supplemental_sensor_mode_data sensor_mode;
 };
 
-struct cifisp_dpcc_methods_config
-{
+struct cifisp_dpcc_methods_config {
 	unsigned int method;
-    	unsigned int  line_thresh;
-    	unsigned int  line_mad_fac;
-    	unsigned int  pg_fac;
-    	unsigned int  rnd_thresh;
-    	unsigned int  rg_fac;
+	unsigned int  line_thresh;
+	unsigned int  line_mad_fac;
+	unsigned int  pg_fac;
+	unsigned int  rnd_thresh;
+	unsigned int  rg_fac;
 };
 
-struct cifisp_dpcc_config
-{
-    	unsigned int  mode;
-    	unsigned int  output_mode;
-    	unsigned int  set_use;
-	struct cifisp_dpcc_methods_config methods[CIFISP_DPCC_METHODS_MAX];    	
+struct cifisp_dpcc_config {
+	unsigned int  mode;
+	unsigned int  output_mode;
+	unsigned int  set_use;
+	struct cifisp_dpcc_methods_config methods[CIFISP_DPCC_METHODS_MAX];
 	unsigned int  ro_limits;
-    	unsigned int  rnd_offs;
+	unsigned int  rnd_offs;
 };
 
 struct cifisp_gamma_corr_curve {
@@ -425,7 +421,7 @@ enum cifisp_dpf_gain_usage {
 
 enum cifisp_dpf_rb_filtersize {
 	CIFISP_DPF_RB_FILTERSIZE_13x9      = 0,    /**< red and blue filter kernel size 13x9 (means 7x5 active pixel) */
-	CIFISP_DPF_RB_FILTERSIZE_9x9       = 1,    /**< red and blue filter kernel size 9x9 (means 5x5 active pixel) */	
+	CIFISP_DPF_RB_FILTERSIZE_9x9       = 1,    /**< red and blue filter kernel size 9x9 (means 5x5 active pixel) */
 };
 
 enum cifisp_dpf_nll_scale_mode {
@@ -486,7 +482,7 @@ struct cifisp_last_capture_config {
 };
 
 struct cifisp_isp_other_cfg {
-	unsigned int s_frame_id;		/* Set isp hardware frame id */	
+	unsigned int s_frame_id;/* Set isp hardware frame id */
 
 	unsigned int module_ens;
 
@@ -521,6 +517,4 @@ struct cifisp_isp_metadata {
 	struct cifisp_isp_meas_cfg meas_cfg;
 	struct cifisp_stat_buffer meas_stat;
 };
-
-
 #endif

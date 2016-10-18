@@ -1,6 +1,6 @@
 /*
 **************************************************************************
- * Rockchip driver for CIF ISP 1.1
+ * Rockchip driver for CIF ISP 1.0
  * (Based on Intel driver for sofiaxxx)
  *
  * Copyright (C) 2015 Intel Mobile Communications GmbH
@@ -39,17 +39,18 @@ struct isp_supplemental_sensor_mode_data {
 	unsigned int crop_vertical_end;
 	unsigned int sensor_output_width; /* input size to ISP */
 	unsigned int sensor_output_height;
-	unsigned int isp_input_horizontal_start;
+	unsigned int isp_input_horizontal_start;	/* cif isp input */
 	unsigned int isp_input_vertical_start;
 	unsigned int isp_input_width;
 	unsigned int isp_input_height;
+	unsigned int isp_output_width;	/* cif isp output */
+	unsigned int isp_output_height;
 	unsigned char binning_factor_x; /* horizontal binning factor used */
 	unsigned char binning_factor_y; /* vertical binning factor used */
 	unsigned char exposure_valid_frame;
 	int exp_time;
 	unsigned short gain;
 };
-
 
 struct camera_module_info_s {
 	char sensor_name[CAMERA_STRLEN];
@@ -91,7 +92,7 @@ struct v4l2_buffer_metadata_s {
 	struct frame_timeinfo_s frame_t;
 	struct flash_timeinfo_s flash_t;
 	struct sensor_metadata_s sensor;
-	unsigned char isp[CAMERA_METADATA_LEN-512];
+	unsigned char isp[CAMERA_METADATA_LEN - 512];
 };
 
 #endif

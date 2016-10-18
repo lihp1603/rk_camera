@@ -140,7 +140,7 @@ public:
 			drmDspFrame(spCamBuf->getWidth(),
                                     spCamBuf->getHeight(),
                                     //(int)(spCamBuf->getVirtAddr()),
-									(short)(spCamBuf->getFd()),
+		    (short)(spCamBuf->getFd()),
                                      DRM_FORMAT_NV12);
 			#endif
 			spCamBuf->decUsedCnt();

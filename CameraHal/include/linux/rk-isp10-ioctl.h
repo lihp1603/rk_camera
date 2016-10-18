@@ -1,11 +1,11 @@
 /*
 **************************************************************************
- * Rockchip driver for CIF ISP 1.0 
+ * Rockchip driver for CIF ISP 1.0
  * (Based on Intel driver for sofiaxxx)
  *
  * Copyright (C) 2015 Intel Mobile Communications GmbH
  * Copyright (C) 2016 Fuzhou Rockchip Electronics Co., Ltd.
- * 
+ *
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
